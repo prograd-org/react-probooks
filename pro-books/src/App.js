@@ -38,7 +38,11 @@ export default class App extends Component {
 
   render() {
     if (this.state.books.length === 0) {
-      return null
+      return (
+        <div className="load">
+          <img src="load.gif" alt="loading" />
+        </div>
+      );
     }
     return (
       <div className="App">

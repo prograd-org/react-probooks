@@ -25,7 +25,6 @@ export default class Home extends Component {
                     <h1>Like</h1>
                     <hr />
                     <div className="like">
-
                     </div>
                     <h1>Dislike</h1>
                     <hr />
