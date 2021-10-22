@@ -62,8 +62,8 @@ header {
 
 .book-cont .dis {
   color: grey;
+  pointer-events: none;
 }
-
 
 .bname {
   font-size: 1.9vh;

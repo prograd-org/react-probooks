@@ -40,7 +40,7 @@ export default class App extends Component {
     if (this.state.books.length === 0) {
       return (
         <div className="load">
-          <img src="load.gif" alt="loading" />
+          <img src="https://raw.githubusercontent.com/AaryanShaikh/react-probooks/main/pro-books/src/res/load.gif" alt="loading" />
         </div>
       );
     }
@@ -49,7 +49,7 @@ export default class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/"><Home books={this.state.books} /></Route>
-            <Route path="/search"><Search /></Route>
+            <Route path="/search"><Search books={this.state.books} /></Route>
           </Switch>
         </Router>
       </div>
