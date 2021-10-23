@@ -14,7 +14,7 @@ export default class Book extends Component {
                 obj = { type: "dislike", id: this.props.id }
                 break;
             case "del":
-                obj = { type: "delete", id: this.props.id }
+                obj = { type: "all", id: this.props.id }
                 break;
             default: break
         }

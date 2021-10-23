@@ -10,7 +10,8 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      books: []
+      books: [],
+      obj: { type: "", id: "" }
     }
   }
 
@@ -26,14 +27,29 @@ export default class App extends Component {
     }
     axios.get(api, { headers })
       .then((res) => {
-        this.setState({
-          books: res.data.books
+        let newBooks = []
+        res.data.books.forEach((book) => {
+          let obj = { id: book.id, title: book.title, author: book.authors[0], img: book.imageLinks.thumbnail, type: "all" }
+          newBooks.push(obj)
         })
-        console.log(res.data.books);
+        this.setState({
+          books: [...newBooks]
+        })
+        console.log(this.state.books);
       })
       .catch(err => {
         console.log(err);
       })
+  }
+
+  setBookSearch = (e) => {
+    let newObj = this.state.obj
+    newObj.type = e.type
+    newObj.id = e.id
+    this.setState({
+      obj: newObj
+    })
+    console.log(this.state.obj);
   }
 
   render() {
@@ -48,8 +64,8 @@ export default class App extends Component {
       <div className="App">
         <Router>
           <Switch>
-            <Route exact path="/"><Home books={this.state.books} /></Route>
-            <Route path="/search"><Search books={this.state.books} /></Route>
+            <Route exact path="/"><Home books={this.state.books} sobj={this.state.obj} /></Route>
+            <Route path="/search"><Search books={this.state.books} type={this.setBookSearch} /></Route>
           </Switch>
         </Router>
       </div>
