@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link, Redirect, Router } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Book from './Book'
 
 export default class Search extends Component {
